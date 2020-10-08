@@ -3,7 +3,12 @@
     <v-content :style="{'background': backgroundColor}">
       <v-container class="px-4 mt-auto" fluid>
         <Header />
-        <nuxt />
+        <transition
+          name="fade"
+          mode="out-in"
+        >
+          <nuxt />
+        </transition>
       </v-container>
     </v-content>
   </v-app>

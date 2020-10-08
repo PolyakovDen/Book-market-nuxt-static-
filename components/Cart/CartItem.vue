@@ -6,7 +6,19 @@
       <p class="product__price">
         {{ product.price | formatPrice }}
       </p>
-      <button class="product__btn" @click="addToCart">
+      <button
+        v-if="canAddToCart"
+        class="product__btn"
+        @click="addToCart"
+      >
+        Add to cart
+      </button>
+      <button
+        v-else
+        disabled
+        class="product__btn--disabled"
+        @click="addToCart"
+      >
         Add to cart
       </button>
     </div>
@@ -40,10 +52,25 @@ export default {
         id: 11,
         title: 'Cat food, 25lb bag',
         description: 'A 25 pound bag of <em>irresistible</em>,' + ' organic goodness for your cat.',
-        price: 2000
+        price: 2000,
+        availableInventory: 5
       },
-      cart: []
+      cart: [],
+      products: []
     }
+  },
+  computed: {
+    canAddToCart () {
+      return this.product.availableInventory > this.cart.length
+    }
+  },
+  created: {
+    // testApi () {
+    //   this.$axios.get('cart.json')
+    //     .then((response) => {
+    //       this.products = response.data.products
+    //     })
+    // }
   },
   methods: {
     addToCart () {
@@ -82,5 +109,12 @@ export default {
   .product__btn:hover {
     background-color: darkorange;
     outline: 2px solid mediumturquoise;
+  }
+  .product__btn--disabled {
+    background-color:darkgray;
+    border: none;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
   }
 </style>

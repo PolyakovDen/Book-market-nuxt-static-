@@ -1,7 +1,12 @@
 <template>
   <div class="d-flex justify-end">
     <v-btn
-      text
+      class="mr-5"
+      to="/"
+    >
+      Головна
+    </v-btn>
+    <v-btn
       to="/store"
     >
       Cart: {{ getItemsCounter }}

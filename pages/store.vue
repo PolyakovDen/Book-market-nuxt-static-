@@ -1,13 +1,14 @@
 <template>
   <div class="">
-    <h1>hello from store</h1>
+    <SubmitBuy />
   </div>
 </template>
 
 <script>
+import SubmitBuy from '../components/SubmitBuy/index'
 export default {
   components: {
-
+    SubmitBuy
   }
 }
 </script>

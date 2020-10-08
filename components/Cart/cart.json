@@ -1,0 +1,30 @@
+[
+  {
+    "id": 11,
+    "title": "Cat food, 25lb bag",
+    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
+    "price": 2000,
+    "availableInventory": 5
+  }, 
+  {
+    "id": 12,
+    "title": "Cat food, 25lb bag",
+    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
+    "price": 2000,
+    "availableInventory": 5
+  }, 
+  {
+    "id": 13,
+    "title": "Cat food, 25lb bag",
+    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
+    "price": 2000,
+    "availableInventory": 5
+  },
+  {
+    "id": 14,
+    "title": "Cat food, 25lb bag",
+    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
+    "price": 2000,
+    "availableInventory": 5
+  }
+]
