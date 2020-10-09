@@ -1,15 +1,16 @@
 <template>
   <div class="product__wrapper">
-    <div class="product__cart">
+    <div class="product__cart mt-5" v-for="product in products" :key="product.id">
+      <p>{{ product.title }}</p>
       <h1 class="product__title" v-html="product.title" />
       <p class="product__description" v-html="product.description" />
       <p class="product__price">
         {{ product.price | formatPrice }}
       </p>
       <button
-        v-if="canAddToCart"
+        v-if="canAddToCart(product)"
         class="product__btn"
-        @click="addToCart"
+        @click="addToCart(product)"
       >
         Add to cart
       </button>
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import cartItems from './cart.json'
 export default {
   name: 'CartItem',
   filters: {
@@ -47,34 +49,35 @@ export default {
   },
   data () {
     return {
-      sitename: 'hello',
-      product: {
-        id: 11,
-        title: 'Cat food, 25lb bag',
-        description: 'A 25 pound bag of <em>irresistible</em>,' + ' organic goodness for your cat.',
-        price: 2000,
-        availableInventory: 5
-      },
       cart: [],
       products: []
     }
   },
-  computed: {
-    canAddToCart () {
-      return this.product.availableInventory > this.cart.length
-    }
+  created () {
+    this.products = [...cartItems]
   },
-  created: {
-    // testApi () {
-    //   this.$axios.get('cart.json')
-    //     .then((response) => {
-    //       this.products = response.data.products
-    //     })
-    // }
+  computed: {
   },
   methods: {
-    addToCart () {
-      this.cart.push(this.product.id)
+    canAddToCart (product) {
+      return product.availableInventory > this.cartCount(product.id)
+    },
+    cartCount (id) {
+      // const count = this.cart.reduce((ac, el) => {
+      //   ac[el] = ac[el] + 1 || 1
+      //   return ac
+      // }, {})
+      // return count[id] || 0
+      let count = 0
+      for (let i = 0; i < this.cart.length; i++) {
+        if (this.cart[i] === id) {
+          count++
+        }
+      }
+      return count
+    },
+    addToCart (product) {
+      this.cart.push(product.id)
       this.$store.commit('setItemsCounter', this.cart.length)
     }
   }
