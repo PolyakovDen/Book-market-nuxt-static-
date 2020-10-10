@@ -75,7 +75,6 @@ export default {
       for (let i = 0; i < Math.ceil(this.products.length / this.size); i++) {
         this.productsSubarray[i] = this.products.slice((i * this.size), (i * this.size) + this.size)
       }
-      console.log(this.productsSubarray)
     },
     canAddToCart (product) {
       return product.availableInventory > this.cartCount(product.id)

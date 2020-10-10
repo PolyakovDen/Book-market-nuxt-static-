@@ -1,121 +1,44 @@
 <template>
   <div>
-    <form>
-      <v-text-field
-        v-model="name"
-        :error-messages="nameErrors"
-        :counter="10"
-        label="Name"
-        required
-        @input="$v.name.$touch()"
-        @blur="$v.name.$touch()"
-      />
-      <v-text-field
-        v-model="email"
-        :error-messages="emailErrors"
-        label="E-mail"
-        required
-        @input="$v.email.$touch()"
-        @blur="$v.email.$touch()"
-      />
-      <v-checkbox
-        v-model="checkbox"
-        :error-messages="checkboxErrors"
-        label="Do you agree?"
-        required
-        @change="$v.checkbox.$touch()"
-        @blur="$v.checkbox.$touch()"
-      />
-
-      <v-btn
-        class="mr-4"
-        @click="submit"
-      >
-        submit
-      </v-btn>
-      <v-btn @click="clear">
-        clear
-      </v-btn>
-    </form>
-    <div class="form__preview pa-6">
-      <p>
-        Name: {{ name }}
-      </p>
-      <p>
-        E-mail: {{ email }}
-      </p>
+    <ul class="cart__list">
+      <li class="cart__item">
+        <h2 />
+      </li>
+    </ul>
+    <div class="button__counter">
+      <v-btn @click="minusCounterItem">-</v-btn>
+      <input v-model="itemCounter" readonly disabled min="1" type="number">
+      <v-btn @click="itemCounter++">+</v-btn>
     </div>
   </div>
 </template>
 
 <script>
-import { validationMixin } from 'vuelidate'
-import { required, maxLength, email } from 'vuelidate/lib/validators'
 export default {
-  mixins: [validationMixin],
-  validations: {
-    name: { required, maxLength: maxLength(10) },
-    email: { required, email },
-    select: { required },
-    checkbox: {
-      checked (val) {
-        return val
-      }
-    }
-  },
-  data: () => ({
-    name: '',
-    email: '',
-    checkbox: false
-  }),
-  computed: {
-    checkboxErrors () {
-      const errors = []
-      if (!this.$v.checkbox.$dirty) { return errors }
-      !this.$v.checkbox.checked && errors.push('You must agree to continue!')
-      return errors
-    },
-    selectErrors () {
-      const errors = []
-      if (!this.$v.select.$dirty) { return errors }
-      !this.$v.select.required && errors.push('Item is required')
-      return errors
-    },
-    nameErrors () {
-      const errors = []
-      if (!this.$v.name.$dirty) { return errors }
-      !this.$v.name.maxLength && errors.push('Name must be at most 10 characters long')
-      !this.$v.name.required && errors.push('Name is required.')
-      return errors
-    },
-    emailErrors () {
-      const errors = []
-      if (!this.$v.email.$dirty) { return errors }
-      !this.$v.email.email && errors.push('Must be valid e-mail')
-      !this.$v.email.required && errors.push('E-mail is required')
-      return errors
+  data () {
+    return {
+      itemCounter: 1
     }
   },
   methods: {
-    submit () {
-      this.$v.$touch()
-    },
-    clear () {
-      this.$v.$reset()
-      this.name = ''
-      this.email = ''
-      this.checkbox = false
+    minusCounterItem () {
+      if (this.itemCounter === 1) return;
+      this.itemCounter--;
     }
   }
 }
 </script>
 
 <style>
-  .form__preview {
-    background-color: #fff;
-    color: #000;
-    border-radius: 20px;
-    margin-top: 50px;
-    font-size: 14px;
-  }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 </style>
