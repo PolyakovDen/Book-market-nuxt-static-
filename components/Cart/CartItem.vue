@@ -1,6 +1,6 @@
 <template>
   <div class="product__wrapper">
-    <div class="product__cart mt-5" v-for="product in products" :key="product.id">
+    <div v-for="product in paginationArray" :key="product.id" class="product__cart mt-5">
       <p>{{ product.title }}</p>
       <h1 class="product__title" v-html="product.title" />
       <p class="product__description" v-html="product.description" />
@@ -23,6 +23,11 @@
         Add to cart
       </button>
     </div>
+    <v-pagination
+      v-model="page"
+      class="my-4"
+      :length="productsSubarray.length"
+    />
   </div>
 </template>
 
@@ -50,15 +55,28 @@ export default {
   data () {
     return {
       cart: [],
-      products: []
+      products: [],
+      productsSubarray: [],
+      size: 3,
+      page: 1
+    }
+  },
+  computed: {
+    paginationArray () {
+      return this.productsSubarray[this.page - 1]
     }
   },
   created () {
     this.products = [...cartItems]
-  },
-  computed: {
+    this.splitProductsList()
   },
   methods: {
+    splitProductsList () {
+      for (let i = 0; i < Math.ceil(this.products.length / this.size); i++) {
+        this.productsSubarray[i] = this.products.slice((i * this.size), (i * this.size) + this.size)
+      }
+      console.log(this.productsSubarray)
+    },
     canAddToCart (product) {
       return product.availableInventory > this.cartCount(product.id)
     },
