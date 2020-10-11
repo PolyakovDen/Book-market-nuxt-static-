@@ -1,6 +1,15 @@
 <template>
   <div class="product__wrapper">
-    <div v-for="product in paginationArray" :key="product.id" class="product__cart mt-5">
+    <div class="search__product">
+      <v-text-field
+        v-model="search"
+        prepend-icon="mdi-magnify"
+        centered-input
+      >
+        Search:
+      </v-text-field>
+    </div>
+    <div v-for="product in filteredList" :key="product.id" class="product__cart mt-5">
       <p>{{ product.title }}</p>
       <h1 class="product__title" v-html="product.title" />
       <p class="product__description" v-html="product.description" />
@@ -54,6 +63,7 @@ export default {
   },
   data () {
     return {
+      search: '',
       cart: [],
       products: [],
       productsSubarray: [],
@@ -64,6 +74,11 @@ export default {
   computed: {
     paginationArray () {
       return this.productsSubarray[this.page - 1]
+    },
+    filteredList () {
+      return this.paginationArray.filter((item) => {
+        return item.title.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
   },
   created () {
@@ -102,6 +117,10 @@ export default {
 </script>
 
 <style scoped>
+  .search__product {
+    width: 40%;
+    margin: 0 auto;
+  }
   .product__cart {
     max-width: 320px;
     margin: 0 auto;
