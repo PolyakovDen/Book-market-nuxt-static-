@@ -110,7 +110,8 @@ export default {
     },
     addToCart (product) {
       this.cart.push(product.id)
-      this.$store.commit('setItemsCounter', this.cart.length)
+      // this.$store.commit('setItemsCounter', this.cart.length)
+      this.$store.commit('addItemToCart', product)
     }
   }
 }

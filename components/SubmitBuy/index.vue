@@ -1,14 +1,18 @@
 <template>
   <div>
-    <ul class="cart__list">
+    <ul v-for="item in getItemInCart" :key="item.id" class="cart__list">
       <li class="cart__item">
-        <h2 />
+        <span>{{ item.title }}</span> <span>{{ item.count }}</span>
       </li>
     </ul>
     <div class="button__counter">
-      <v-btn @click="minusCounterItem">-</v-btn>
+      <v-btn @click="minusCounterItem">
+        -
+      </v-btn>
       <input v-model="itemCounter" readonly disabled min="1" type="number">
-      <v-btn @click="itemCounter++">+</v-btn>
+      <v-btn @click="itemCounter++">
+        +
+      </v-btn>
     </div>
   </div>
 </template>
@@ -20,10 +24,15 @@ export default {
       itemCounter: 1
     }
   },
+  computed: {
+    getItemInCart () {
+      return this.$store.getters.getItemInCart
+    }
+  },
   methods: {
     minusCounterItem () {
-      if (this.itemCounter === 1) return;
-      this.itemCounter--;
+      if (this.itemCounter === 1) { return }
+      this.itemCounter--
     }
   }
 }

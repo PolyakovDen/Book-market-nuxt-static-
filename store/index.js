@@ -4,7 +4,8 @@ export const state = () => ({
 })
 
 export const getters = {
-  getItemsCounter: state => state.itemsCounter
+  getItemsCounter: state => state.itemsCounter,
+  getItemInCart: state => state.cart
 }
 
 export const mutations = {
