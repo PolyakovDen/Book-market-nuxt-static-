@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="cart">
     <ul v-for="item in getItemInCart" :key="item.id" class="cart__list">
       <li class="cart__item">
-        <span>{{ item.title }}</span> <span>{{ item.count }}</span>
+        <span>{{ item.title }}</span>
+        <span>{{ item.count }}</span>
+        <span>{{ item.price }}</span>
       </li>
     </ul>
     <div class="button__counter">
@@ -39,15 +41,19 @@ export default {
 </script>
 
 <style>
-/* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
+</style>
+
+<style scoped>
+  .cart__list {
+    margin: 0 auto;
+  }
 </style>

@@ -3,35 +3,56 @@
     "id": 11,
     "title": "Cat food, 25lb bag",
     "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 2000,
+    "price": 20,
     "availableInventory": 5
   },
   {
     "id": 12,
     "title": "Cat food, 25lb bag",
     "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 3500,
+    "price": 35,
     "availableInventory": 3
   },
   {
     "id": 13,
     "title": "Cat food, 25lb bag",
     "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 4000,
+    "price": 40,
     "availableInventory": 2
   },
   {
     "id": 14,
     "title": "Cat food, 25lb bag",
     "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 1200,
+    "price": 12,
     "availableInventory": 6
   },
   {
     "id": 16,
     "title": "Палатка",
     "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 1800,
+    "price": 18,
+    "availableInventory": 7
+  },
+  {
+    "id": 17,
+    "title": "Палатка",
+    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
+    "price": 18,
+    "availableInventory": 7
+  },
+  {
+    "id": 18,
+    "title": "Палатка",
+    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
+    "price": 18,
+    "availableInventory": 7
+  },
+  {
+    "id": 19,
+    "title": "Палатка",
+    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
+    "price": 18,
     "availableInventory": 7
   }
 ]

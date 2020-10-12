@@ -14,7 +14,7 @@
       <h1 class="product__title" v-html="product.title" />
       <p class="product__description" v-html="product.description" />
       <p class="product__price">
-        {{ product.price | formatPrice }}
+        $ {{ product.price }}
       </p>
       <button
         v-if="canAddToCart(product)"
@@ -44,23 +44,6 @@
 import cartItems from './cart.json'
 export default {
   name: 'CartItem',
-  filters: {
-    formatPrice (price) {
-      if (!parseInt(price)) { return '' }
-      if (price > 99999) {
-        const priceString = (price / 100).toFixed(2)
-        const priceArray = priceString.split('').reverse()
-        let index = 3
-        while (priceArray.length > index + 3) {
-          priceArray.splice(index + 3, 0, ',')
-          index += 4
-        }
-        return '$' + priceArray.reverse().join('')
-      } else {
-        return '$' + (price / 100).toFixed(2)
-      }
-    }
-  },
   data () {
     return {
       search: '',
@@ -76,19 +59,35 @@ export default {
       return this.productsSubarray[this.page - 1]
     },
     filteredList () {
-      return this.paginationArray.filter((item) => {
-        return item.title.toLowerCase().includes(this.search.toLowerCase())
-      })
+      if (this.paginationArray) {
+        return this.paginationArray.filter((item) => {
+          return item.title.toLowerCase().includes(this.search.toLowerCase())
+        })
+      }
+      return []
+    }
+  },
+  watch: {
+    search (val) {
+      if (val.trim()) {
+        const filteredProducts = this.products.filter((item) => {
+          return item.title.toLowerCase().includes(this.search.toLowerCase())
+        })
+        this.splitProductsList(filteredProducts);
+      } else {
+        this.splitProductsList(this.products);
+      }
     }
   },
   created () {
     this.products = [...cartItems]
-    this.splitProductsList()
+    this.splitProductsList(this.products)
   },
   methods: {
-    splitProductsList () {
-      for (let i = 0; i < Math.ceil(this.products.length / this.size); i++) {
-        this.productsSubarray[i] = this.products.slice((i * this.size), (i * this.size) + this.size)
+    splitProductsList (products) {
+      this.productsSubarray = []
+      for (let i = 0; i < Math.ceil(products.length / this.size); i++) {
+        this.productsSubarray.push(products.slice((i * this.size), (i * this.size) + this.size))
       }
     },
     canAddToCart (product) {
@@ -110,7 +109,6 @@ export default {
     },
     addToCart (product) {
       this.cart.push(product.id)
-      // this.$store.commit('setItemsCounter', this.cart.length)
       this.$store.commit('addItemToCart', product)
     }
   }
@@ -138,6 +136,7 @@ export default {
   .product__price {
     font-size: 16px;
     font-style: italic;
+    text-align: right;
   }
   .product__btn {
     background-color: mediumturquoise;
