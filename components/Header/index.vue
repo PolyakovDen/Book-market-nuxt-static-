@@ -7,9 +7,16 @@
       Головна
     </v-btn>
     <v-btn
+      v-if="getCartCounter.length === 0"
       to="/store"
     >
-      Cart: {{ getItemsCounter }}
+      Cart:
+    </v-btn>
+    <v-btn
+      v-else
+      to="/store"
+    >
+      Cart: {{ getCartCounter.length }}
     </v-btn>
   </div>
 </template>
@@ -17,8 +24,8 @@
 <script>
 export default {
   computed: {
-    getItemsCounter () {
-      return this.$store.getters.getItemsCounter
+    getCartCounter () {
+      return this.$store.getters.getItemInCart
     }
   }
 }
