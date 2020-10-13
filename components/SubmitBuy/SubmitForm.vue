@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="pa-7" style="background: #D6974F">
+    <h2>Checkout:</h2>
     <form>
       <v-text-field
         v-model="name"

@@ -22,7 +22,7 @@ export default {
   },
   data () {
     return {
-      backgroundColor: 'linear-gradient(#ff9a9e, #fecfef)'
+      backgroundColor: '#5A414C'
     }
   }
 }

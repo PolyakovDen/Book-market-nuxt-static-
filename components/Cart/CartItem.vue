@@ -10,7 +10,6 @@
       </v-text-field>
     </div>
     <div v-for="product in filteredList" :key="product.id" class="product__cart mt-5">
-      <p>{{ product.title }}</p>
       <h1 class="product__title" v-html="product.title" />
       <p class="product__description" v-html="product.description" />
       <p class="product__price">
@@ -123,7 +122,7 @@ export default {
   .product__cart {
     max-width: 320px;
     margin: 0 auto;
-    background-color: darkorange;
+    background-color: #E38343;
     padding: 15px;
     border-radius: 12px;
   }
@@ -139,15 +138,15 @@ export default {
     text-align: right;
   }
   .product__btn {
-    background-color: mediumturquoise;
+    background-color: #EFA916;
     border: none;
     padding: 5px 10px;
     font-size: 15px;
     border-radius: 5px;
   }
   .product__btn:hover {
-    background-color: darkorange;
-    outline: 2px solid mediumturquoise;
+    background-color: #E38343;
+    outline: 2px solid #EFA916;
   }
   .product__btn--disabled {
     background-color:darkgray;
@@ -155,5 +154,9 @@ export default {
     padding: 5px 10px;
     font-size: 15px;
     border-radius: 5px;
+  }
+  ::v-deep .v-pagination__item.v-pagination__item--active.primary {
+    background-color: #EFA916 !important;
+    border-color: #EFA916 !important;
   }
 </style>

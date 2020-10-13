@@ -1,58 +1,51 @@
 [
   {
-    "id": 11,
-    "title": "Cat food, 25lb bag",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 20,
+    "id": 1,
+    "title": "Fahrenheit 451",
+    "description": "Guy Montag is a fireman. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden.",
+    "price": 7,
     "availableInventory": 5
   },
   {
-    "id": 12,
-    "title": "Cat food, 25lb bag",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 35,
+    "id": 2,
+    "title": "Midnight Sun",
+    "description": "When Edward Cullen and Bella Swan met in Twilight, an iconic love story was born. But until now, fans have heard only Bella's side of the story. At last, readers can experience Edward's version in the long-awaited companion novel, Midnight Sun",
+    "price": 22,
     "availableInventory": 3
   },
   {
-    "id": 13,
-    "title": "Cat food, 25lb bag",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 40,
+    "id": 3,
+    "title": "Dune",
+    "description": "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for....",
+    "price": 20,
     "availableInventory": 2
   },
   {
-    "id": 14,
-    "title": "Cat food, 25lb bag",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 12,
+    "id": 4,
+    "title": "The Evening and the Morning",
+    "description": "It is 997 CE, the end of the Dark Ages. England is facing attacks from the Welsh in the west and the Vikings in the east. Those in power bend justice according to their will, regardless of ordinary people and often in conflict with the king. Without a clear rule of law, chaos reigns.",
+    "price": 18,
     "availableInventory": 6
   },
   {
-    "id": 16,
-    "title": "Палатка",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 18,
+    "id": 5,
+    "title": "Troubled Blood",
+    "description": "Private Detective Cormoran Strike is visiting his family in Cornwall when he is approached by a woman asking for help finding her mother, Margot Bamborough – who went missing in mysterious circumstances in 1974.",
+    "price": 28,
     "availableInventory": 7
   },
   {
-    "id": 17,
-    "title": "Палатка",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 18,
+    "id": 6,
+    "title": "Total Power",
+    "description": "When Mitch Rapp captures ISIS’s top technology expert, he reveals that he was on his way to meet a man who claims to have the ability to bring down America’s power grid. Rapp is determined to eliminate this shadowy figure, but the CIA’s trap fails.",
+    "price": 20,
     "availableInventory": 7
   },
   {
-    "id": 18,
-    "title": "Палатка",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 18,
-    "availableInventory": 7
-  },
-  {
-    "id": 19,
-    "title": "Палатка",
-    "description": "A 25 pound bag of irresistible, organic goodness for your cat.",
-    "price": 18,
+    "id": 7,
+    "title": "The Way of Kings",
+    "description": "Roshar is a world of stone and storms. Uncanny tempests of incredible power sweep across the rocky terrain so frequently that they have shaped ecology and civilization alike. Animals hide in shells, trees pull in branches, and grass retracts into the soilless ground. Cities are built only where the topography offers shelter.",
+    "price": 27,
     "availableInventory": 7
   }
 ]

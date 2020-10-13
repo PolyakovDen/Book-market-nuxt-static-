@@ -4,7 +4,7 @@
       class="mr-5"
       to="/"
     >
-      Головна
+      Home
     </v-btn>
     <v-btn
       v-if="getCartCounter.length === 0"

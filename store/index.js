@@ -1,17 +1,12 @@
 export const state = () => ({
-  itemsCounter: null,
   cart: []
 })
 
 export const getters = {
-  getItemsCounter: state => state.itemsCounter,
   getItemInCart: state => state.cart
 }
 
 export const mutations = {
-  setItemsCounter (state, payload) {
-    state.itemsCounter = payload
-  },
 
   addItemToCart (state, payload) {
     if (state.cart.find(el => el.id === payload.id)) {

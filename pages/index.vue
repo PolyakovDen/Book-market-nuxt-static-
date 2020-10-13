@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <CartItem />
   </div>
 </template>
@@ -9,6 +9,9 @@ import CartItem from '../components/Cart/CartItem'
 export default {
   components: {
     CartItem
+  },
+  head: {
+    title: 'Book Market | Home'
   }
 }
 </script>

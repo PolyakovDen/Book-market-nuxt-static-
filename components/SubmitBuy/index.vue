@@ -43,21 +43,31 @@
         <v-list-item-content>
           <v-list-item-subtitle class="d-flex justify-space-between" style="align-items: center">
             <p class="ma-0">
-              Загальна сума: <span class="font-weight-bold">{{ summaryCartItemsPrice(getItemInCart) }}</span> $
+              Total: <span class="font-weight-bold">{{ summaryCartItemsPrice(getItemInCart) }}</span> $
             </p>
-            <v-btn
-              color="rgb(88, 25, 221)"
-              large
-              rounded
-              class="mb-2 ml-5 mr-1"
-              dark
-              elevation="0"
-              min-width="200"
+            <v-dialog
+              v-model="dialog"
+              max-width="700px"
             >
-              <p class="ma-0" style="font-size: 13px">
-                Оформити замовлення
-              </p>
-            </v-btn>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  color="#EFA916"
+                  large
+                  rounded
+                  class="mb-2 ml-5 mr-1"
+                  dark
+                  elevation="0"
+                  min-width="200"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <p class="ma-0" style="font-size: 13px">
+                    Checkout
+                  </p>
+                </v-btn>
+              </template>
+              <SubmitForm />
+            </v-dialog>
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -66,10 +76,14 @@
 </template>
 
 <script>
+import SubmitForm from './SubmitForm'
 export default {
+  components: {
+    SubmitForm
+  },
   data () {
     return {
-      itemCounter: 1
+      dialog: false
     }
   },
   computed: {
